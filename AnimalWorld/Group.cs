@@ -1,41 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AnimalWorld
 {
-    class Group : IAnimals
+    class Group 
     {
-        private void Primates()
+        private void Animals()
         {
-            var monkey = new Monkey();
-            var gibbon = new Gibbon();
-            Console.WriteLine("Primates:");
-            monkey.Show();
-            gibbon.Show();
+            var alist = new List<IShowAnimal>();
+            alist.Add(new Monkey());
+            alist.Add(new Gibbon());
+            alist.Add(new Elephant());
+            alist.Add(new Giraffe());
+            alist.Add(new Frog());
+            alist.Add(new Salamander());
+            foreach(IShowAnimal animal in alist)
+            {
+                animal.Show();
+            }
         }
-        private void Mammalians()
-        {
-            var elephant = new Elephant();
-            var giraffe = new Giraffe();
-            Console.WriteLine("Mammalians:");
-            elephant.Show();
-            giraffe.Show();
-        }
-        private void Amphibians()
-        {
-            var salamander = new Salamander();
-            var frog = new Frog();
-            Console.WriteLine("Amphibians");
-            salamander.Show();
-            frog.Show();
-        }
+
         public void Show()
         {
-            Primates();
-            Console.WriteLine("-------------------");
-            Mammalians();
-            Console.WriteLine("-------------------");
-            Amphibians();
+            Animals();
         }
     }
 }
